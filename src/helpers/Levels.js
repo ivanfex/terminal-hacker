@@ -28,7 +28,8 @@ export let TremendoTre = {
             a: 'things'
         }
     ],
-    instruction: 'El TremendoTre has changed some words for the word pie in some sort of pattern, input the correct word'
+    instruction: 'El TremendoTre has changed some words for the word pie in some sort of pattern, input the correct word',
+    level: 1
 }
 
 export let JoseLevelsUp = {
@@ -61,7 +62,8 @@ export let JoseLevelsUp = {
             a: '6'
         }
     ],
-    instruction: 'JoseLevelsUp has a math-based riddles to lock attack logs'
+    instruction: 'JoseLevelsUp has a math-based riddles to lock attack logs',
+    level: 2
 }
 
 export let Mike = {
@@ -82,5 +84,6 @@ export let Mike = {
             a: 'python'
         }
     ],
-    instruction: 'You got the hang of it'
+    instruction: 'You got the hang of it',
+    level: 3
 }

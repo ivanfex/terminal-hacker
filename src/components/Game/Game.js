@@ -38,6 +38,7 @@ class Game extends Component {
         this.askForPassword = this.askForPassword.bind(this);
         this.setLevel = this.setLevel.bind(this);
         this.enterPassword = this.enterPassword.bind(this);
+        this.wininngScreen = this.wininngScreen.bind(this);
     }
 
     starter(){
@@ -50,12 +51,18 @@ class Game extends Component {
     }
 
     showMainMenu(){
-        this.setState({
-            currentScreen: 'MainMenu',
-            instruction: PreInstructs.mainMenu,
-            level: 0,
-            currentQuestion: 0
-        })
+        if(this.state.firstCompleted && this.state.secondCompleted && this.state.thirdCompleted){
+            this.setState({
+                instruction: ['You have unlocked your terminal', 'Hackers don\'t stand a chance', 'Next adventure coming soon']
+            })
+        }else{
+            this.setState({
+                currentScreen: 'MainMenu',
+                instruction: PreInstructs.mainMenu.concat(['port 1 ' + this.state.firstCompleted, 'port 2 ' + this.state.secondCompleted, 'port 3 ' + this.state.thirdCompleted]),
+                level: 0,
+                currentQuestion: 0
+            })
+        }
     }
 
     handleOnChange(ev){
@@ -206,15 +213,45 @@ class Game extends Component {
 
             if(input === hacker.riddles[this.state.currentQuestion].a){
                 this.addToActions('Bypassed');
-                this.setState({
-                    currentQuestion: this.state.currentQuestion + 1
-                },function(){
+                if (this.state.currentQuestion < hacker.riddles.length - 1) {
                     this.setState({
-                        instruction: [hacker.riddles[this.state.currentQuestion].q]
+                        currentQuestion: this.state.currentQuestion + 1
+                    },function(){
+                        this.setState({
+                            instruction: [hacker.riddles[this.state.currentQuestion].q]
+                        })
                     })
-                })
+                }else{
+                    this.wininngScreen(hacker);
+                }
             }
         }
+    }
+
+    wininngScreen(hacker){
+        switch (hacker.level) {
+            case 1:
+                this.setState({
+                    firstCompleted: true
+                })
+                console.log('Sup1');
+                break;
+            case 2:
+                this.setState({
+                    secondCompleted: true
+                })
+                break;
+            case 3:
+                this.setState({
+                    thirdCompleted: true
+                })
+                break;
+
+        }
+
+        this.setState({
+            instruction: ['You have unlocked:', hacker.name + ' port','Type menu to unlock the next port']
+        })
     }
 
     setLevel(){
