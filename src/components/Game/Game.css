@@ -1,0 +1,61 @@
+.Titles{
+    padding-top: 16px;
+    color: #6dd98f;
+    position: fixed;
+    left: 33%
+}
+.Game {
+    background-color: black;
+    height: 100%;
+    z-index: 0;
+}
+.Terminal {
+    text-align: left;
+    z-index: 1;
+    padding-left: 6px;
+    padding-right: 6px;
+    position: relative;
+    left: 3px;
+    bottom: 620px;
+    display: inline-block;
+    width: 744px;
+    height: 455px;
+    background-image: url(./../../assets/Graphics/bg.png);
+    background-repeat: repeat;
+    color: #6dd98f;
+    font-family: monospace;
+}
+
+input, ul  {
+    color: #6dd98f;
+    font-family: monospace;
+    background: none;
+    border: none;
+    resize: none;
+    width:100%;
+    overflow: auto;
+    outline: none;
+    padding: 2px;
+}
+
+.actions {
+    margin-bottom: 0px
+}
+
+.instruction {
+    border: 2px solid #6dd98f;
+    padding: 2px;
+}
+
+.PowerOnButton {
+    position: relative;
+    width: 56px;
+    height: 56px;
+    bottom: 556px;
+    left: 788px;
+    z-index: 2;
+    border: 2px solid red;
+
+}
+
+/* @media screen and (max-width: 699px) and (min-width: 520px) { */
