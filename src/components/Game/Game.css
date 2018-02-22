@@ -49,13 +49,17 @@ input, ul  {
 
 .PowerOnButton {
     position: relative;
-    width: 56px;
+    width: 50%;
     height: 56px;
-    bottom: 556px;
-    left: 788px;
+    bottom: 557px;
+    /* left: 973px; */
     z-index: 2;
-    border: 2px solid red;
+    float: right;
+}
 
+.PowerOnButton::after {
+    content: '';
+    clear: both;
 }
 
 /* @media screen and (max-width: 699px) and (min-width: 520px) { */

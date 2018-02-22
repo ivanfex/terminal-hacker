@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import { Route, Switch, BrowserRouter } from 'react-router-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
+import Sound from 'react-sound';
+
 
 import './index.css';
 import App from './App';
@@ -21,10 +23,9 @@ ReactDOM.render((
     <Provider store={store}>
         <BrowserRouter>
             <Switch>
-                <Route exact path="/" name="App" component={App}/>
                 <Route exact path="/login" name="Login" component={Login}/>
                 <Route exact path="/register" name="Register" component={Register}/>
-                <Route exact path="/game" name="Game" component={Game}/>
+                <Route exact path="/" name="Game" component={Game}/>
             </Switch>
         </BrowserRouter>
     </Provider>

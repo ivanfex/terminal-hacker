@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './Game.css'
 import BackgroundOn from './../../assets/Graphics/monitorborder.png';
 import BackgroundOff from './../../assets/Graphics/monitorborder-off.png';
+import Sound from 'react-sound';
 
 import { TremendoTre, JoseLevelsUp, Mike } from './../../helpers/Levels';
 import { PreInstructs } from './../../helpers/Instructions';
@@ -90,6 +91,9 @@ class Game extends Component {
             })
             this.onUserInput(event.target.value);
             event.target.value = '';
+
+            var audio = new Audio('./key.mp3');
+            audio.play();
         }
 
     }
@@ -119,7 +123,7 @@ class Game extends Component {
         let toAdd = this.state.action.concat(input);
         this.setState({
            action: toAdd
-        })
+       })
     }
 
     runMainMenu(input){
@@ -286,7 +290,6 @@ class Game extends Component {
 
     return (
       <div className="App" onLoad={ this.starter }>
-
           <div>
               <img src={this.state.powerOn ? BackgroundOn : BackgroundOff} className="Game" alt="screen"></img>
           </div>
